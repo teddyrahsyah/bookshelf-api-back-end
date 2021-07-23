@@ -14,7 +14,7 @@ const updateBookById = (request, h) => {
     reading,
   } = request.payload;
 
-  const updatedAt = new Date().toISOString;
+  const updatedAt = new Date().toISOString();
 
   const index = books.findIndex((book) => book.id === bookId);
 

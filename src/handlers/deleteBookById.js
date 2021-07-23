@@ -3,7 +3,7 @@ const books = require('../books');
 const deleteBookById = (request, h) => {
   const { bookId } = request.params;
 
-  const index = books.findIndex((book) => book.id === bookId)[0];
+  const index = books.findIndex((book) => book.id === bookId);
 
   // Delete Success
   if (index !== -1) {

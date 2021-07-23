@@ -16,25 +16,8 @@ const addBook = (request, h) => {
   const id = nanoid(15);
 
   const finished = (pageCount === readPage);
-  const insertedAt = new Date().toISOString;
+  const insertedAt = new Date().toISOString();
   const updatedAt = insertedAt;
-
-  const newBook = {
-    id,
-    name,
-    year,
-    author,
-    summary,
-    publisher,
-    pageCount,
-    readPage,
-    finished,
-    reading,
-    insertedAt,
-    updatedAt,
-  };
-
-  books.push(newBook);
 
   // Error (Name is null or undefined)
   if (name === undefined || name === null) {
@@ -55,6 +38,23 @@ const addBook = (request, h) => {
     response.code(400);
     return response;
   }
+
+  const newBook = {
+    id,
+    name,
+    year,
+    author,
+    summary,
+    publisher,
+    pageCount,
+    readPage,
+    finished,
+    reading,
+    insertedAt,
+    updatedAt,
+  };
+
+  books.push(newBook);
 
   const isSuccess = books.filter((book) => book.id === id).length > 0;
 
